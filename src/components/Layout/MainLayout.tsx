@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import { Header } from "../ui/header/Header";
+import { Header } from "../Header/Header";
 import { Outlet } from "react-router";
 
 export const MainLayout = () => {
