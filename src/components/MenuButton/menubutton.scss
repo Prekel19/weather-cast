@@ -1,0 +1,33 @@
+@use "../../styles//constants" as c;
+
+@mixin bluredBackground {
+  background-color: #ffffff1a;
+  backdrop-filter: blur(12px);
+}
+
+.menu-button {
+  @include bluredBackground();
+  padding: 0.4rem;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #fff3;
+  }
+
+  &_content {
+    @include bluredBackground();
+    padding: 0;
+    border: none;
+
+    &-item {
+      color: c.$font-color;
+      padding: 0.6rem 0.8rem;
+      border-radius: 0;
+
+      &:hover {
+        background-color: #fff3;
+      }
+    }
+  }
+}

@@ -2,22 +2,24 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu/dropdown-menu";
+import MenuIcon from "../../assets/icons/hamburger-menu.svg";
+import "./menubutton.scss";
 
 export const MenuButton = () => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-      <DropdownMenuContent>
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>Profile</DropdownMenuItem>
-        <DropdownMenuItem>Billing</DropdownMenuItem>
-        <DropdownMenuItem>Team</DropdownMenuItem>
-        <DropdownMenuItem>Subscription</DropdownMenuItem>
+      <DropdownMenuTrigger className="menu-button">
+        <img src={MenuIcon} alt="Hamburger menu icon" />
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="menu-button_content" align="end">
+        <DropdownMenuItem className="menu-button_content-item">Home</DropdownMenuItem>
+        <DropdownMenuItem className="menu-button_content-item">
+          Weather Map
+        </DropdownMenuItem>
+        <DropdownMenuItem className="menu-button_content-item">Settings</DropdownMenuItem>
+        <DropdownMenuItem className="menu-button_content-item">About</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
