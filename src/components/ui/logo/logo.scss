@@ -1,0 +1,54 @@
+@use "../../../styles/constants" as c;
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+$sunDimensions: 45px;
+$cloudDimensions: 30px;
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: float 3s ease-in-out infinite;
+
+  &_icons {
+    position: relative;
+
+    .sun-icon {
+      width: $sunDimensions;
+      height: $sunDimensions;
+      animation: rotate linear infinite 15s;
+    }
+
+    .cloud-icon {
+      position: absolute;
+      width: $cloudDimensions;
+      height: $cloudDimensions;
+      bottom: 3px;
+      right: -4px;
+      rotate: 12deg;
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    color: c.$font-color;
+  }
+}

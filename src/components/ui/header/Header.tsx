@@ -1,9 +1,9 @@
 import { Logo } from "../logo/Logo";
-import styles from "./header.module.scss";
+import "./header.scss";
 
-export const header = () => {
+export const Header = () => {
   return (
-    <header className={styles.header}>
+    <header className="header">
       <Logo />
     </header>
   );

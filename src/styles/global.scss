@@ -1,0 +1,23 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+body {
+  background: linear-gradient(to bottom right, #60a5fa, #1d4ed8) no-repeat;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+#root {
+  max-width: 1000px;
+  margin: 0 auto;
+}

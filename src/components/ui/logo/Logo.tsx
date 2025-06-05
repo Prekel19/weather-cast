@@ -1,10 +1,14 @@
-import styles from "./logo.module.scss";
-import sun from "../../../assets/icons/sun.svg";
+import Sun from "../../../assets/icons/sun.svg";
+import Cloud from "../../../assets/icons/cloud.svg";
+import "./logo.scss";
 
 export const Logo = () => {
   return (
-    <div>
-      <div></div>
+    <div className="header-logo">
+      <div className="header-logo_icons">
+        <img className="sun-icon" src={Sun} alt="Sun icon" />
+        <img className="cloud-icon" src={Cloud} alt="Cloud icon" />
+      </div>
       <h1>WeatherCast</h1>
     </div>
   );
