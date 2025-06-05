@@ -41,7 +41,7 @@ $cloudDimensions: 30px;
       position: absolute;
       width: $cloudDimensions;
       height: $cloudDimensions;
-      bottom: 3px;
+      bottom: 0;
       right: -4px;
       rotate: 12deg;
     }
@@ -49,6 +49,7 @@ $cloudDimensions: 30px;
 
   h1 {
     font-size: 1.5rem;
+    font-weight: 700;
     color: c.$font-color;
   }
 }

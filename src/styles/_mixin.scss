@@ -1,0 +1,4 @@
+@mixin bluredBackground($bgColor: #ffffff1a) {
+  background-color: $bgColor;
+  backdrop-filter: blur(12px);
+}

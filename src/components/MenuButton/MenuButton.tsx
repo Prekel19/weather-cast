@@ -3,7 +3,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 import MenuIcon from "../../assets/icons/hamburger-menu.svg";
 import "./menubutton.scss";
 

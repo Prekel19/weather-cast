@@ -1,0 +1,33 @@
+@use "@/styles/mixin" as m;
+@use "@/styles/constants" as c;
+
+.searchbar {
+  @include m.bluredBackground();
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 16px;
+  border: 1px solid #fff6;
+
+  &_input {
+    flex: 1;
+    font-size: 0.8rem;
+    color: c.$font-color;
+    outline: unset;
+
+    &::placeholder {
+      color: #fff6;
+    }
+  }
+
+  button {
+    background: transparent;
+    box-shadow: none;
+    color: #fff6;
+    padding: 0;
+
+    &:hover {
+      color: c.$font-color;
+    }
+  }
+}
