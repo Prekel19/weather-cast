@@ -8,7 +8,7 @@ export const SearchInput = ({ onChange }: SearchInputProps) => {
       className="searchbar_input"
       type="text"
       onChange={(e) => onChange(e.target.value)}
-      placeholder="Search location"
+      placeholder="Search location..."
     />
   );
 };

@@ -63,8 +63,8 @@ export const SearchBar = () => {
       )}
       {cities.length > 0 && (
         <ul className="searchbar_results">
-          {cities.map((city, index) => (
-            <SearchResultItem key={index} city={city} />
+          {cities.map((city) => (
+            <SearchResultItem key={city.id} city={city} />
           ))}
         </ul>
       )}

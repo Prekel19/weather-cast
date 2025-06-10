@@ -1,19 +1,21 @@
 import { Search } from "lucide-react";
 import type { City } from "./SearchBar";
+import { Link } from "react-router";
 
 interface ISearchResultItem {
-  key: number;
   city: City;
 }
 
-export const SearchResultItem = ({ key, city }: ISearchResultItem) => {
+export const SearchResultItem = ({ city }: ISearchResultItem) => {
   const cityData: string[] = [city.name, city.region, city.country];
   const result: string = cityData.filter((el) => el.length > 0).join(", ");
 
   return (
-    <li className="searchbar_results-item" key={key}>
-      <Search size={15} />
-      {result}
+    <li className="searchbar_results-item">
+      <Link to={`${city.url}`}>
+        <Search size={15} />
+        {result}
+      </Link>
     </li>
   );
 };
