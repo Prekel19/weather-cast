@@ -4,12 +4,15 @@
 .searchbar {
   @include m.bluredBackground();
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   padding: 0.4rem 1rem;
   border-radius: 16px;
   border: 1px solid #fff6;
+  position: relative;
 
   &_input {
+    height: 45px;
     flex: 1;
     font-size: 0.8rem;
     color: c.$font-color;
@@ -28,6 +31,32 @@
 
     &:hover {
       color: c.$font-color;
+    }
+  }
+
+  &_results {
+    display: none;
+  }
+}
+
+.searchbar:has(input:focus) {
+  .searchbar_results {
+    @include m.bluredBackground();
+    width: 100%;
+    display: list-item;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 16px;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+
+    .searchbar_results-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      padding: 0.2rem 0;
     }
   }
 }

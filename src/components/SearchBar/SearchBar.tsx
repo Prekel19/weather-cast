@@ -1,14 +1,16 @@
 import { Button } from "@/components/ui/button";
 import { useDebounce } from "@/hooks/useDebounce";
-import { Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { SearchInput } from "./SearchInput";
+import { SearchResultItem } from "./SearchResultItem";
+import { Search } from "lucide-react";
+import { ClipLoader } from "react-spinners";
 import axios from "axios";
 import "./searchbar.scss";
 
 const url: string = "https://api.weatherapi.com/v1/search.json";
 
-interface City {
+export interface City {
   id: number;
   name: string;
   country: string;
@@ -35,7 +37,6 @@ export const SearchBar = () => {
               q: searchDebounce,
             },
           });
-          console.log(res.data);
           setCities(res.data as City[]);
         } catch (err) {
           console.log(err);
@@ -53,14 +54,20 @@ export const SearchBar = () => {
   return (
     <div className="searchbar">
       <SearchInput onChange={setSearch} />
-      <Button>
-        <Search cursor="pointer" />
-      </Button>
-      <ul>
-        {cities?.map((city, index) => (
-          <li key={index}>{city.name}</li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <ClipLoader size={20} color="#fff6" />
+      ) : (
+        <Button>
+          <Search cursor="pointer" />
+        </Button>
+      )}
+      {cities.length > 0 && (
+        <ul className="searchbar_results">
+          {cities.map((city, index) => (
+            <SearchResultItem key={index} city={city} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
