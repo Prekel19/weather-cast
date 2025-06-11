@@ -1,9 +1,10 @@
+import { Container } from "@/components/ui/container/Container";
 import { CurrentWeather } from "@/components/CurrentWeather/CurrentWeather";
 
 export const CityWeather = () => {
   return (
-    <div>
+    <Container className="current-weather">
       <CurrentWeather />
-    </div>
+    </Container>
   );
 };

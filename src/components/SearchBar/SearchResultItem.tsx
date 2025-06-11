@@ -1,5 +1,5 @@
+import type { City } from "@/types/types";
 import { Search } from "lucide-react";
-import type { City } from "./SearchBar";
 import { Link } from "react-router";
 
 interface ISearchResultItem {

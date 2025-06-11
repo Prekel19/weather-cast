@@ -5,20 +5,11 @@ import { SearchInput } from "./SearchInput";
 import { SearchResultItem } from "./SearchResultItem";
 import { Search } from "lucide-react";
 import { ClipLoader } from "react-spinners";
+import type { City } from "@/types/types";
 import axios from "axios";
 import "./searchbar.scss";
 
 const url: string = "https://api.weatherapi.com/v1/search.json";
-
-export interface City {
-  id: number;
-  name: string;
-  country: string;
-  region: string;
-  url: string;
-  lat: number;
-  lon: number;
-}
 
 export const SearchBar = () => {
   const [search, setSearch] = useState<string>("");
