@@ -5,7 +5,7 @@ import { SearchInput } from "./SearchInput";
 import { SearchResultItem } from "./SearchResultItem";
 import { Search } from "lucide-react";
 import { ClipLoader } from "react-spinners";
-import type { City } from "@/types/types";
+import type { City } from "@/models/types";
 import axios from "axios";
 import "./searchbar.scss";
 

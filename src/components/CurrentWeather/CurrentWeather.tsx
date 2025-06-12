@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
-import { ICurrentWeather } from "@/types/types";
+import { IForecast } from "@/models/types";
 import { ClipLoader } from "react-spinners";
 import { useGetDate } from "@/hooks/useGetDate";
+import { Calendar, MapPin } from "lucide-react";
+import { weatherIcons } from "@/models/data";
+import { getImageURL } from "@/utility/getImageURL";
 import axios from "axios";
 import "./currentweather.scss";
-import { Calendar, MapPin } from "lucide-react";
 
-const url: string = "https://api.weatherapi.com/v1/current.json";
+const url: string = "https://api.weatherapi.com/v1/forecast.json";
 
 export const CurrentWeather = () => {
   const { cityUrl } = useParams();
@@ -24,10 +26,11 @@ export const CurrentWeather = () => {
         params: {
           key: import.meta.env.VITE_WEATHER_API_KEY,
           q: cityUrl,
+          days: 1,
         },
       });
 
-      return res.data as ICurrentWeather;
+      return res.data as IForecast;
     },
   });
 
@@ -43,6 +46,8 @@ export const CurrentWeather = () => {
     );
   }
 
+  console.log(weather);
+
   return (
     <>
       <div className="current-weather_heading">
@@ -54,6 +59,42 @@ export const CurrentWeather = () => {
           <Calendar size={14} />
           {date}
         </p>
+      </div>
+      <div className="current-weather_content">
+        <div className="current-weather_content-left">
+          <img
+            src={getImageURL(weatherIcons[weather?.current.condition.code])}
+            height={120}
+            width={120}
+            alt={weather?.current.condition.text}
+          />
+          <div className="current-weather_content-left-info">
+            <p className="current-weather_temperature">
+              {Math.round(weather?.current.temp_c)}°C
+            </p>
+            <p className="current-weather_condition">{weather?.current.condition.text}</p>
+          </div>
+        </div>
+        <div className="current-weather_content-right">
+          <div className="current-weather_content-right-item">
+            {weather?.current.wind_kph} km/h
+          </div>
+          <div className="current-weather_content-right-item">
+            {weather?.current.humidity}%
+          </div>
+          <div className="current-weather_content-right-item">
+            {weather?.current.pressure_mb} mb
+          </div>
+          <div className="current-weather_content-right-item">
+            {weather?.current.vis_km} km
+          </div>
+          <div className="current-weather_content-right-item">
+            {weather?.forecast.forecastday[0].astro.sunrise}
+          </div>
+          <div className="current-weather_content-right-item">
+            {weather?.forecast.forecastday[0].astro.sunset}
+          </div>
+        </div>
       </div>
     </>
   );

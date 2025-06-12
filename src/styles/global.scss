@@ -27,9 +27,11 @@ button {
 }
 
 .current-weather {
-  min-height: 300px;
+  min-height: 250px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
   color: #fff;
   padding: 0 1.2rem;
   margin-top: 1rem;

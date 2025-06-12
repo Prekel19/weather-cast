@@ -1,4 +1,4 @@
-import type { City } from "@/types/types";
+import type { City } from "@/models/types";
 import { Search } from "lucide-react";
 import { Link } from "react-router";
 
