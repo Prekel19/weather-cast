@@ -48,8 +48,9 @@ export const CurrentWeatherDetails = ({ weather }: ICurrentWeatherDetails) => {
 
   return (
     <div className="current-weather_content-right">
-      {details.map((detail) => (
+      {details.map((detail, index) => (
         <CurrentWeatherDetailsItem
+          key={index}
           title={detail.title}
           icon={detail.icon}
           info={detail.info}
