@@ -8,6 +8,7 @@ import { weatherIcons } from "@/models/data";
 import { getImageURL } from "@/utility/getImageURL";
 import axios from "axios";
 import "./currentweather.scss";
+import { CurrentWeatherDetails } from "./CurrentWeatherDetails";
 
 const url: string = "https://api.weatherapi.com/v1/forecast.json";
 
@@ -46,8 +47,6 @@ export const CurrentWeather = () => {
     );
   }
 
-  console.log(weather);
-
   return (
     <>
       <div className="current-weather_heading">
@@ -75,26 +74,7 @@ export const CurrentWeather = () => {
             <p className="current-weather_condition">{weather?.current.condition.text}</p>
           </div>
         </div>
-        <div className="current-weather_content-right">
-          <div className="current-weather_content-right-item">
-            {weather?.current.wind_kph} km/h
-          </div>
-          <div className="current-weather_content-right-item">
-            {weather?.current.humidity}%
-          </div>
-          <div className="current-weather_content-right-item">
-            {weather?.current.pressure_mb} mb
-          </div>
-          <div className="current-weather_content-right-item">
-            {weather?.current.vis_km} km
-          </div>
-          <div className="current-weather_content-right-item">
-            {weather?.forecast.forecastday[0].astro.sunrise}
-          </div>
-          <div className="current-weather_content-right-item">
-            {weather?.forecast.forecastday[0].astro.sunset}
-          </div>
-        </div>
+        <CurrentWeatherDetails weather={weather} />
       </div>
     </>
   );
