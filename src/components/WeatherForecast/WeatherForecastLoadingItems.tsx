@@ -12,8 +12,10 @@ export const WeatherForecastLoadingItems = () => {
 
   return (
     <>
-      {loaders.map((loader) => (
-        <div className="forecast-item">{loader}</div>
+      {loaders.map((loader, index) => (
+        <div key={index} className="forecast-item">
+          {loader}
+        </div>
       ))}
     </>
   );

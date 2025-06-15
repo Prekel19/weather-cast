@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useDebounce } from "@/hooks/useDebounce";
 import { useEffect, useState } from "react";
-import { SearchInput } from "./SearchInput";
+import SearchInput from "./SearchInput";
 import { SearchResultItem } from "./SearchResultItem";
 import { Search } from "lucide-react";
 import { ClipLoader } from "react-spinners";

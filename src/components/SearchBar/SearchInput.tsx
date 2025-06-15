@@ -1,8 +1,10 @@
+import { memo } from "react";
+
 interface SearchInputProps {
   onChange: (value: string) => void;
 }
 
-export const SearchInput = ({ onChange }: SearchInputProps) => {
+const SearchInput = ({ onChange }: SearchInputProps) => {
   return (
     <input
       className="searchbar_input"
@@ -12,3 +14,5 @@ export const SearchInput = ({ onChange }: SearchInputProps) => {
     />
   );
 };
+
+export default memo(SearchInput);

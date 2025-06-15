@@ -23,10 +23,13 @@ $sunDimensions: 45px;
 $cloudDimensions: 30px;
 
 .header-logo {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
   animation: float 3s ease-in-out infinite;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
   &_icons {
     position: relative;
