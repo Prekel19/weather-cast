@@ -12,7 +12,7 @@ export const SearchResultItem = ({ city }: ISearchResultItem) => {
 
   return (
     <li className="searchbar_results-item">
-      <Link to={`${city.url}`}>
+      <Link to={`/weather/${city.url}`}>
         <Search size={15} />
         {result}
       </Link>

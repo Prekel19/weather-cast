@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { ForecastDay } from "@/models/types";
 import { Container } from "../ui/container/Container";
-import { WeatherForecastLoadingItems } from "./WeatherForecastLoadingItems";
+import { WeatherForecastLoading } from "./WeatherForecastLoading";
 import { ForecastItem } from "./WeatherForecastItem";
 import axios from "axios";
 import "./forecast.scss";
@@ -23,7 +23,7 @@ export const WeatherForecast = () => {
         params: {
           key: import.meta.env.VITE_WEATHER_API_KEY,
           q: cityUrl,
-          days: 5,
+          days: 3,
         },
       });
 
@@ -37,13 +37,15 @@ export const WeatherForecast = () => {
 
   return (
     <Container className="forecast">
-      <h2>5-Day Forecast</h2>
+      <h2>3-Day Forecast</h2>
       <div className="forecast-content">
         {isPending ? (
-          <WeatherForecastLoadingItems />
+          <WeatherForecastLoading />
         ) : (
-          forecast?.map((forecastDay: ForecastDay, index) => (
-            <ForecastItem key={index} forecastday={forecastDay} />
+          forecast.map((forecastDay: ForecastDay, index) => (
+            <Link to={`/weather/${cityUrl}`}>
+              <ForecastItem key={index} forecastday={forecastDay} />
+            </Link>
           ))
         )}
       </div>

@@ -14,6 +14,7 @@ const url: string = "https://api.weatherapi.com/v1/forecast.json";
 
 export const CurrentWeather = () => {
   const { cityUrl } = useParams();
+  console.log(cityUrl);
   const date: string = useGetDate();
 
   const {

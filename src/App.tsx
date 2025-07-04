@@ -17,7 +17,7 @@ export default function App() {
           element: <Home />,
         },
         {
-          path: ":cityUrl",
+          path: "/weather/:cityUrl",
           element: <CityWeather />,
         },
       ],
