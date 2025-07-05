@@ -2,3 +2,14 @@
   background-color: $bgColor;
   backdrop-filter: blur(12px);
 }
+
+@mixin smallContentWrapper {
+  min-height: 256px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+}

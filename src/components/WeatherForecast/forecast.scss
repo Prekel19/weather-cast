@@ -1,3 +1,5 @@
+@use "@/styles/mixin" as m;
+
 .forecast {
   min-height: 330px;
   display: flex;
@@ -19,6 +21,12 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+  }
+
+  &-item {
+    @include m.bluredBackground(#fff3);
+    @include m.smallContentWrapper;
+    flex: 1;
   }
 
   a {

@@ -38,7 +38,9 @@ export const CityWeatherItem = ({ city }: CityWeatherListItem) => {
   return (
     <>
       {isPending ? (
-        <ClipLoader size={18} color="#fff6" />
+        <div className="city-weather-loading">
+          <ClipLoader size={20} color="#fff6" />
+        </div>
       ) : (
         <Link to={`weather/${city.toLocaleLowerCase()}`}>
           <WeatherDetailsItem heading={city} forecastday={forecast[0]} />

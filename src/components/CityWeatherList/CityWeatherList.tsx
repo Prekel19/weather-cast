@@ -8,8 +8,8 @@ interface CityWeatherList {
 export const CityWeatherList = ({ cities }: CityWeatherList) => {
   return (
     <div className="city-weather-list">
-      {cities.map((city) => (
-        <CityWeatherItem city={city} />
+      {cities.map((city, index) => (
+        <CityWeatherItem key={index} city={city} />
       ))}
     </div>
   );

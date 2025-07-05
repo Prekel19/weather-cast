@@ -1,3 +1,5 @@
+@use "@/styles/mixin" as m;
+
 .city-weather-list {
   display: flex;
   align-items: center;
@@ -6,7 +8,13 @@
   margin-top: 1rem;
   color: #fff;
 
+  .city-weather-loading {
+    @include m.bluredBackground(#fff3);
+    @include m.smallContentWrapper;
+    flex: 1;
+  }
+
   a {
-    flex: 1 1;
+    flex: 1;
   }
 }

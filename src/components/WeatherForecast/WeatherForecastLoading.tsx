@@ -7,7 +7,7 @@ export const WeatherForecastLoading = () => {
     <>
       {Array.from({ length: itemsCount }).map((_, index) => (
         <div key={index} className="forecast-item">
-          <ClipLoader size={18} color="#fff6" />
+          <ClipLoader size={20} color="#fff6" />
         </div>
       ))}
     </>

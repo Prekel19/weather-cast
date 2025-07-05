@@ -6,15 +6,14 @@ import { useGetDate } from "@/hooks/useGetDate";
 import { Calendar, MapPin } from "lucide-react";
 import { weatherIcons } from "@/models/data";
 import { getImageURL } from "@/utility/getImageURL";
+import { CurrentWeatherDetails } from "./CurrentWeatherDetails";
 import axios from "axios";
 import "./currentweather.scss";
-import { CurrentWeatherDetails } from "./CurrentWeatherDetails";
 
 const url: string = "https://api.weatherapi.com/v1/forecast.json";
 
 export const CurrentWeather = () => {
   const { cityUrl } = useParams();
-  console.log(cityUrl);
   const date: string = useGetDate();
 
   const {
