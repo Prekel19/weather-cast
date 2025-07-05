@@ -44,20 +44,20 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   margin-top: 1rem;
 
   &_item {
     @include m.bluredBackground(#fff3);
     backdrop-filter: blur(4px);
     width: 100%;
-    padding: 0.65rem 0.5rem;
+    padding: 0.65rem;
     border-radius: 16px;
     color: #fff;
     transition: all 0.2s ease-in-out;
 
     &:hover {
-      scale: 1.025;
+      scale: 1.015;
     }
   }
 }

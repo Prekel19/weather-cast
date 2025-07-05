@@ -2,14 +2,12 @@ import { City } from "@/models/types";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { Link } from "react-router";
-import axios from "axios";
 import { ClipLoader } from "react-spinners";
+import { getWeatherApi } from "@/utility/getWeatherApi";
 
 interface ISearchResultItem {
   city: City;
 }
-
-const url: string = "https://api.weatherapi.com/v1/search.json";
 
 export const SearchResults = () => {
   const { city } = useParams();
@@ -20,16 +18,7 @@ export const SearchResults = () => {
     isPending,
   } = useQuery({
     queryKey: ["search", { city }],
-    queryFn: async () => {
-      const res = await axios.get(url, {
-        params: {
-          key: import.meta.env.VITE_WEATHER_API_KEY,
-          q: city,
-        },
-      });
-
-      return res.data as City[];
-    },
+    queryFn: () => getWeatherApi<City[]>("search.json", { q: city }),
   });
 
   if (isError) {

@@ -1,51 +1,17 @@
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router";
 import { IForecast } from "@/models/types";
-import { ClipLoader } from "react-spinners";
 import { useGetDate } from "@/hooks/useGetDate";
 import { Calendar, MapPin } from "lucide-react";
 import { weatherIcons } from "@/models/data";
 import { getImageURL } from "@/utility/getImageURL";
 import { CurrentWeatherDetails } from "./CurrentWeatherDetails";
-import axios from "axios";
 import "./currentweather.scss";
 
-const url: string = "https://api.weatherapi.com/v1/forecast.json";
+interface ICurrentWeather {
+  weather: IForecast;
+}
 
-export const CurrentWeather = () => {
-  const { cityUrl } = useParams();
+export const CurrentWeather = ({ weather }: ICurrentWeather) => {
   const date: string = useGetDate();
-
-  const {
-    data: weather,
-    isError,
-    isPending,
-  } = useQuery({
-    queryKey: ["weather", { cityUrl }],
-    queryFn: async () => {
-      const res = await axios.get(url, {
-        params: {
-          key: import.meta.env.VITE_WEATHER_API_KEY,
-          q: cityUrl,
-          days: 1,
-        },
-      });
-
-      return res.data as IForecast;
-    },
-  });
-
-  if (isPending) {
-    return <ClipLoader className="current-weather_center" color="#fff6" />;
-  }
-
-  if (isError) {
-    return (
-      <p className="current-weather_center current-weather_error">
-        Wystąpił nieoczkiwany błąd.
-      </p>
-    );
-  }
 
   return (
     <>
