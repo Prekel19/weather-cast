@@ -21,8 +21,8 @@ export const WeatherForecast = ({ forecast, isPending }: IWeatherForecast) => {
           <WeatherForecastLoading />
         ) : (
           forecast?.map((forecastDay: ForecastDay, index) => (
-            <Link to={`/weather/${cityUrl}`}>
-              <ForecastItem key={index} forecastday={forecastDay} />
+            <Link to={`/weather/${cityUrl}`} key={index}>
+              <ForecastItem forecastday={forecastDay} />
             </Link>
           ))
         )}

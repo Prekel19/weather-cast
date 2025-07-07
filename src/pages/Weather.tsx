@@ -6,9 +6,12 @@ import { getWeatherApi } from "@/utility/getWeatherApi";
 import { useQuery } from "@tanstack/react-query";
 import { IForecast } from "@/models/types";
 import { ClipLoader } from "react-spinners";
+import { useBackgroundContext } from "@/context/BackgroundContext";
+import { useEffect } from "react";
 
-export const CityWeather = () => {
+export const Weather = () => {
   const { cityUrl } = useParams();
+  const { changeBackground } = useBackgroundContext();
 
   const {
     data: weather,
@@ -18,6 +21,15 @@ export const CityWeather = () => {
     queryKey: ["weather", { cityUrl }],
     queryFn: () => getWeatherApi<IForecast>("forecast.json", { q: cityUrl, days: 3 }),
   });
+
+  useEffect(() => {
+    if (weather) {
+      changeBackground(
+        weather?.current.condition.text,
+        weather?.current.is_day === 1 ? true : false
+      );
+    }
+  }, [weather]);
 
   if (isError) {
     return (

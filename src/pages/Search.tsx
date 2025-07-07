@@ -9,7 +9,7 @@ interface ISearchResultItem {
   city: City;
 }
 
-export const SearchResults = () => {
+export const Search = () => {
   const { city } = useParams();
 
   const {
@@ -42,9 +42,7 @@ const SearchResultItem = ({ city }: ISearchResultItem) => {
 
   return (
     <div className="search-result_item">
-      <p>
-        <Link to={`/weather/${city.url}`}>{result}</Link>
-      </p>
+      <Link to={`/weather/${city.url}`}>{result}</Link>
     </div>
   );
 };

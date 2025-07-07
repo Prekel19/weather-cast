@@ -2,8 +2,8 @@ import { ForecastDay } from "@/models/types";
 import { useQuery } from "@tanstack/react-query";
 import { WeatherDetailsItem } from "../WeatherDetailsItem/WeatherDetailsItem";
 import { ClipLoader } from "react-spinners";
-import axios from "axios";
 import { Link } from "react-router";
+import axios from "axios";
 
 const url: string = "https://api.weatherapi.com/v1/forecast.json";
 
@@ -22,7 +22,7 @@ export const CityWeatherItem = ({ city }: CityWeatherListItem) => {
       const res = await axios.get(url, {
         params: {
           key: import.meta.env.VITE_WEATHER_API_KEY,
-          q: city,
+          q: city.toLocaleLowerCase(),
           days: 1,
         },
       });

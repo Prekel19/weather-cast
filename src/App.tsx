@@ -2,8 +2,10 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MainLayout } from "./components/Layout/MainLayout";
 import { Home } from "./pages/Home";
-import { CityWeather } from "./pages/CityWeather";
-import { SearchResults } from "./pages/SearchResults";
+import { Weather } from "./pages/Weather";
+import { Search } from "./pages/Search";
+import { BackgroundProvider } from "./context/BackgroundContext";
+import { WeatherMap } from "./pages/WeatherMap";
 
 const queryClient = new QueryClient();
 
@@ -11,7 +13,11 @@ export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <MainLayout />,
+      element: (
+        <BackgroundProvider>
+          <MainLayout />
+        </BackgroundProvider>
+      ),
       children: [
         {
           index: true,
@@ -19,11 +25,15 @@ export default function App() {
         },
         {
           path: "/weather/:cityUrl",
-          element: <CityWeather />,
+          element: <Weather />,
         },
         {
           path: "/search/:city",
-          element: <SearchResults />,
+          element: <Search />,
+        },
+        {
+          path: "/weathermap",
+          element: <WeatherMap />,
         },
       ],
     },
