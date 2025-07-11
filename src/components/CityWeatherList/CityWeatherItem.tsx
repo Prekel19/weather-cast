@@ -1,11 +1,9 @@
-import { ForecastDay } from "@/models/types";
+import { IForecast } from "@/models/types";
 import { useQuery } from "@tanstack/react-query";
 import { WeatherDetailsItem } from "../WeatherDetailsItem/WeatherDetailsItem";
 import { ClipLoader } from "react-spinners";
 import { Link } from "react-router";
-import axios from "axios";
-
-const url: string = "https://api.weatherapi.com/v1/forecast.json";
+import { getWeatherApi } from "@/utility/getWeatherApi";
 
 interface CityWeatherListItem {
   city: string;
@@ -13,22 +11,16 @@ interface CityWeatherListItem {
 
 export const CityWeatherItem = ({ city }: CityWeatherListItem) => {
   const {
-    data: forecast,
+    data: weather,
     isError,
     isPending,
   } = useQuery({
     queryKey: ["weather-details", { city }],
-    queryFn: async () => {
-      const res = await axios.get(url, {
-        params: {
-          key: import.meta.env.VITE_WEATHER_API_KEY,
-          q: city.toLocaleLowerCase(),
-          days: 1,
-        },
-      });
-
-      return res.data.forecast.forecastday as ForecastDay[];
-    },
+    queryFn: () =>
+      getWeatherApi<IForecast>("forecast.json", {
+        q: city.toLowerCase(),
+        days: 1,
+      }),
   });
 
   if (isError) {
@@ -43,7 +35,17 @@ export const CityWeatherItem = ({ city }: CityWeatherListItem) => {
         </div>
       ) : (
         <Link to={`weather/${city.toLocaleLowerCase()}`}>
-          <WeatherDetailsItem heading={city} forecastday={forecast[0]} />
+          <WeatherDetailsItem
+            heading={city}
+            forecastday={{
+              conditionCode: weather.forecast.forecastday[0].day.condition.code,
+              conditionText: weather.forecast.forecastday[0].day.condition.text,
+              firstTemp_c: weather.forecast.forecastday[0].day.maxtemp_c,
+              secondTemp_c: weather.forecast.forecastday[0].day.mintemp_c,
+              humidity: weather.forecast.forecastday[0].day.avghumidity,
+              wind: weather.forecast.forecastday[0].day.maxwind_kph,
+            }}
+          />
         </Link>
       )}
     </>

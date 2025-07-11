@@ -1,4 +1,7 @@
 @use "./mixin" as m;
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
 
 @property --c1 {
   syntax: "<color>";
@@ -120,6 +123,14 @@ button {
   padding: 0 1.2rem;
   margin-top: 1rem;
   position: relative;
+}
+
+.weather-hours {
+  min-height: 330px;
+  display: flex;
+  align-items: center;
+  padding: 0 1.2rem;
+  margin-top: 1rem;
 }
 
 .search-result {

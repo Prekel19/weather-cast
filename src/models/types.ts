@@ -152,8 +152,3 @@ export interface IForecast {
   current: Current;
   forecast: Forecast;
 }
-
-export interface IForecastItem {
-  heading: string;
-  forecastday: ForecastDay;
-}

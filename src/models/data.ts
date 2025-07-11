@@ -12,7 +12,7 @@ export const weatherIcons: IWeatherIcons = {
   1066: "cloud-snow.svg",
   1069: "cloud-snow.svg",
   1072: "cloud-drizzle.svg",
-  1087: "cloud-lightning,svg",
+  1087: "cloud-lightning.svg",
   1114: "cloud-snow.svg",
   1117: "cloud-snow.svg",
   1135: "mog.svg",

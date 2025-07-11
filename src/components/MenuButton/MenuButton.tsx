@@ -7,6 +7,7 @@ import {
 import MenuIcon from "../../assets/icons/hamburger-menu.svg";
 import "./menubutton.scss";
 import { useNavigate } from "react-router";
+import { Home, Info, Map } from "lucide-react";
 
 export const MenuButton = () => {
   const navigate = useNavigate();
@@ -21,18 +22,21 @@ export const MenuButton = () => {
           className="menu-button_content-item"
           onClick={() => navigate("/")}
         >
+          <Home color="#fff" />
           Home
         </DropdownMenuItem>
         <DropdownMenuItem
           className="menu-button_content-item"
           onClick={() => navigate("/weathermap")}
         >
+          <Map color="#fff" />
           Weather Map
         </DropdownMenuItem>
         <DropdownMenuItem
           className="menu-button_content-item"
           onClick={() => navigate("/about")}
         >
+          <Info color="#fff" />
           About
         </DropdownMenuItem>
       </DropdownMenuContent>

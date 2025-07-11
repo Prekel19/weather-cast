@@ -3,6 +3,7 @@
 .weather-details {
   @include m.bluredBackground(#fff3);
   @include m.smallContentWrapper;
+  color: #fff;
 
   img {
     margin-bottom: 0.5rem;

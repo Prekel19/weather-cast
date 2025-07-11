@@ -1,12 +1,14 @@
 import { Container } from "@/components/ui/container/Container";
 import { CurrentWeather } from "@/components/CurrentWeather/CurrentWeather";
 import { WeatherForecast } from "@/components/WeatherForecast/WeatherForecast";
-import { useParams } from "react-router";
-import { getWeatherApi } from "@/utility/getWeatherApi";
-import { useQuery } from "@tanstack/react-query";
-import { IForecast } from "@/models/types";
-import { ClipLoader } from "react-spinners";
+import { WeatherHourly } from "@/components/WeatherHours/WeatherHourly";
 import { useBackgroundContext } from "@/context/BackgroundContext";
+import { getWeatherApi } from "@/utility/getWeatherApi";
+import { IForecast } from "@/models/types";
+
+import { useParams } from "react-router";
+import { useQuery } from "@tanstack/react-query";
+import { ClipLoader } from "react-spinners";
 import { useEffect } from "react";
 
 export const Weather = () => {
@@ -19,7 +21,11 @@ export const Weather = () => {
     isPending,
   } = useQuery({
     queryKey: ["weather", { cityUrl }],
-    queryFn: () => getWeatherApi<IForecast>("forecast.json", { q: cityUrl, days: 3 }),
+    queryFn: () =>
+      getWeatherApi<IForecast>("forecast.json", {
+        q: cityUrl,
+        days: 3,
+      }),
   });
 
   useEffect(() => {
@@ -46,6 +52,14 @@ export const Weather = () => {
           <ClipLoader className="current-weather_center" color="#fff6" />
         ) : (
           <CurrentWeather weather={weather} />
+        )}
+      </Container>
+
+      <Container className="weather-hours">
+        {isPending ? (
+          <ClipLoader className="current-weather_center" color="#fff6" />
+        ) : (
+          <WeatherHourly weather={weather.forecast.forecastday[0].hour} />
         )}
       </Container>
       <WeatherForecast forecast={weather?.forecast.forecastday} isPending={isPending} />

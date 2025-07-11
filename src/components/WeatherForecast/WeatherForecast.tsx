@@ -1,4 +1,3 @@
-import { Link, useParams } from "react-router";
 import { ForecastDay } from "@/models/types";
 import { Container } from "../ui/container/Container";
 import { WeatherForecastLoading } from "./WeatherForecastLoading";
@@ -11,8 +10,6 @@ interface IWeatherForecast {
 }
 
 export const WeatherForecast = ({ forecast, isPending }: IWeatherForecast) => {
-  const { cityUrl } = useParams();
-
   return (
     <Container className="forecast">
       <h2>3-Day Forecast</h2>
@@ -21,9 +18,7 @@ export const WeatherForecast = ({ forecast, isPending }: IWeatherForecast) => {
           <WeatherForecastLoading />
         ) : (
           forecast?.map((forecastDay: ForecastDay, index) => (
-            <Link to={`/weather/${cityUrl}`} key={index}>
-              <ForecastItem forecastday={forecastDay} />
-            </Link>
+            <ForecastItem key={index} forecastday={forecastDay} />
           ))
         )}
       </div>
