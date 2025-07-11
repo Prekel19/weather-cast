@@ -47,6 +47,7 @@ button {
   width: 100%;
 }
 
+// MAIN CONTAINER
 .main {
   $duration: 1s;
   --c1: #60a5fa;
@@ -113,6 +114,7 @@ button {
   margin-left: auto;
 }
 
+// CURRENT WEATHER COMPONENT
 .current-weather {
   min-height: 250px;
   display: flex;
@@ -125,7 +127,8 @@ button {
   position: relative;
 }
 
-.weather-hours {
+// WEATHER HOURLY COMPONENT
+.weather-hourly {
   min-height: 330px;
   display: flex;
   align-items: center;
@@ -190,5 +193,21 @@ button {
     height: 100%;
     border-radius: 16px;
     overflow: hidden;
+  }
+}
+
+.about {
+  color: #fff;
+  margin-top: 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.1rem;
   }
 }

@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/container/Container";
 import { CurrentWeather } from "@/components/CurrentWeather/CurrentWeather";
 import { WeatherForecast } from "@/components/WeatherForecast/WeatherForecast";
-import { WeatherHourly } from "@/components/WeatherHours/WeatherHourly";
+import { WeatherHourly } from "@/components/WeatherHourly/WeatherHourly";
 import { useBackgroundContext } from "@/context/BackgroundContext";
 import { getWeatherApi } from "@/utility/getWeatherApi";
 import { IForecast } from "@/models/types";
@@ -55,7 +55,7 @@ export const Weather = () => {
         )}
       </Container>
 
-      <Container className="weather-hours">
+      <Container className="weather-hourly">
         {isPending ? (
           <ClipLoader className="current-weather_center" color="#fff6" />
         ) : (
