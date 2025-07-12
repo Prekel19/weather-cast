@@ -136,6 +136,7 @@ button {
   margin-top: 1rem;
 }
 
+// SEARCH RESULTS PAGE
 .search-result {
   display: flex;
   flex-direction: column;
@@ -163,6 +164,7 @@ button {
   }
 }
 
+// WEATHER MAP PAGE
 .weathermap {
   height: 500px;
   display: flex;
@@ -173,6 +175,7 @@ button {
   &_layers {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 
@@ -209,5 +212,35 @@ button {
   p {
     font-size: 0.9rem;
     line-height: 1.1rem;
+  }
+}
+
+// RWD
+@media screen and (max-width: 1100px) {
+  // MAIN CONTAINER
+  .main > * {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .current-weather {
+    min-height: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .current-weather {
+    min-height: 400px;
+  }
+
+  .weather-hourly {
+    min-height: 300px;
   }
 }

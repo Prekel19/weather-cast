@@ -35,3 +35,13 @@
     height: unset;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .swiper {
+    padding-bottom: 0 !important;
+
+    &-pagination {
+      display: none !important;
+    }
+  }
+}

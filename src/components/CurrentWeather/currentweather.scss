@@ -89,3 +89,21 @@
     font-size: 0.8rem;
   }
 }
+
+// RWD
+@media screen and (max-width: 834px) {
+  .current-weather_content {
+    flex-direction: column;
+    gap: 1rem;
+
+    &-right {
+      gap: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .current-weather_content-right {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

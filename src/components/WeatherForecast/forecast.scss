@@ -33,3 +33,20 @@
     flex: 1 1;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .forecast {
+    &-content {
+      flex-wrap: wrap;
+    }
+
+    &-item {
+      flex-basis: 100%;
+    }
+
+    .weather-details {
+      min-height: 256px;
+      flex-basis: 100%;
+    }
+  }
+}

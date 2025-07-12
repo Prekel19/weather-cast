@@ -14,9 +14,25 @@ export const WeatherHourly = ({ weather }: WeatherHoursProps) => {
       modules={[Pagination]}
       loop
       pagination={{ clickable: true }}
+      breakpoints={{
+        834: {
+          slidesPerView: 4,
+          slidesPerGroup: 4,
+        },
+        768: {
+          slidesPerView: 3,
+          slidesPerGroup: 3,
+        },
+        480: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+        },
+        300: {
+          slidesPerView: 1,
+          slidesPerGroup: 1,
+        },
+      }}
       spaceBetween={20}
-      slidesPerView={4}
-      slidesPerGroup={4}
     >
       <SlidePrev />
       {weather.map((hour) => (

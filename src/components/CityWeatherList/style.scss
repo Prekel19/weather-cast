@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1rem;
   color: #fff;
@@ -16,5 +17,23 @@
 
   a {
     flex: 1;
+  }
+}
+
+@media screen and (max-width: 834px) {
+  .city-weather-list {
+    .city-weather-loading,
+    a {
+      flex: 1 1 40%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .city-weather-list {
+    .city-weather-loading,
+    a {
+      flex: 100%;
+    }
   }
 }
