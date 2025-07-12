@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 3rem;
+  margin-top: auto;
+
+  p {
+    color: #fff;
+
+    a {
+      color: #bdbdbd;
+    }
+  }
+}

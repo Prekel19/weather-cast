@@ -1,8 +1,8 @@
 @use "@/styles/mixin" as m;
 
 .weather-details {
-  @include m.bluredBackground(#fff3);
   @include m.smallContentWrapper;
+  background: #fff3;
   color: #fff;
 
   img {

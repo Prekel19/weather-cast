@@ -103,6 +103,10 @@
 }
 
 @media screen and (max-width: 480px) {
+  .current-weather h2 span {
+    font-size: 0.8rem;
+  }
+
   .current-weather_content-right {
     grid-template-columns: repeat(2, 1fr);
   }

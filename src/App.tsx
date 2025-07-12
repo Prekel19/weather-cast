@@ -7,6 +7,7 @@ import { Search } from "./pages/Search";
 import { BackgroundProvider } from "./context/BackgroundContext";
 import { WeatherMap } from "./pages/WeatherMap";
 import { About } from "./pages/About";
+import { NotFound } from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ export default function App() {
           <MainLayout />
         </BackgroundProvider>
       ),
+      errorElement: <NotFound />,
       children: [
         {
           index: true,

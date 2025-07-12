@@ -2,7 +2,7 @@
 @use "@/styles/constants" as c;
 
 .searchbar {
-  @include m.bluredBackground();
+  background-color: #ffffff1a;
   display: flex;
   align-items: center;
   gap: 0.5rem;

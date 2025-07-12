@@ -23,13 +23,12 @@
   }
 
   &-item {
-    @include m.bluredBackground(#fff3);
     @include m.smallContentWrapper;
+    background: #fff3;
     flex: 1;
   }
 
   .weather-details {
-    backdrop-filter: blur(4px);
     flex: 1 1;
   }
 }
