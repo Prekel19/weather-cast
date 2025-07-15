@@ -1,21 +1,19 @@
 import { Button } from "@/components/ui/button";
-import { useDebounce } from "@/hooks/useDebounce";
-import { useEffect, useState } from "react";
-import SearchInput from "./SearchInput";
 import { SearchResultItem } from "./SearchResultItem";
+import { useDebounce } from "@/hooks/useDebounce";
+import { getWeatherApi } from "@/utility/getWeatherApi";
+import type { City } from "@/models/types";
+import SearchInput from "./SearchInput";
+
+import { useState } from "react";
 import { Search } from "lucide-react";
 import { ClipLoader } from "react-spinners";
-import type { City } from "@/models/types";
-import axios from "axios";
-import "./searchbar.scss";
 import { useNavigate } from "react-router";
-
-const url: string = "https://api.weatherapi.com/v1/search.json";
+import { useQuery } from "@tanstack/react-query";
+import "./style.scss";
 
 export const SearchBar = () => {
   const [search, setSearch] = useState<string>("");
-  const [cities, setCities] = useState<City[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>();
   const navigate = useNavigate();
   const searchDebounce = useDebounce(search, 750);
 
@@ -25,30 +23,19 @@ export const SearchBar = () => {
     }
   };
 
-  useEffect(() => {
-    if (searchDebounce) {
-      const fetchCities = async () => {
-        setIsLoading(true);
-        try {
-          const res = await axios.get(url, {
-            params: {
-              key: import.meta.env.VITE_WEATHER_API_KEY,
-              q: searchDebounce,
-            },
-          });
-          setCities(res.data as City[]);
-        } catch (err) {
-          console.log(err);
-        } finally {
-          setIsLoading(false);
-        }
-      };
+  const {
+    data: cities,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["search", { searchDebounce }],
+    queryFn: () => getWeatherApi<City[]>("search.json", { q: searchDebounce }),
+    enabled: !!searchDebounce,
+  });
 
-      fetchCities();
-    } else {
-      setCities([]);
-    }
-  }, [searchDebounce]);
+  if (isError) {
+    console.log("An unexpected error occurred.");
+  }
 
   return (
     <div className="searchbar">
@@ -69,7 +56,7 @@ export const SearchBar = () => {
           <Search cursor="pointer" />
         </Button>
       )}
-      {cities.length > 0 && (
+      {cities && (
         <ul className="searchbar_results">
           {cities.map((city) => (
             <SearchResultItem key={city.id} city={city} />

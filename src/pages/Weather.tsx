@@ -38,11 +38,7 @@ export const Weather = () => {
   }, [weather]);
 
   if (isError) {
-    return (
-      <p className="current-weather_center current-weather_error">
-        Wystąpił nieoczkiwany błąd.
-      </p>
-    );
+    return <p className="weather-error">An unexpected error occurred.</p>;
   }
 
   return (

@@ -1,6 +1,6 @@
 import { MenuButton } from "../MenuButton/MenuButton";
 import { Logo } from "../ui/logo/Logo";
-import "./header.scss";
+import "./style.scss";
 
 export const Header = () => {
   return (

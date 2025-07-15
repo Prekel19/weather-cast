@@ -22,7 +22,7 @@ export const Search = () => {
   });
 
   if (isError) {
-    return <p>Wystąpił nieoczkiwany błąd</p>;
+    return <p className="weather-error">An unexpected error occurred.</p>;
   }
 
   return (

@@ -4,10 +4,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import MenuIcon from "../../assets/icons/hamburger-menu.svg";
-import "./menubutton.scss";
 import { useNavigate } from "react-router";
 import { Home, Info, Map } from "lucide-react";
+import MenuIcon from "../../assets/icons/hamburger-menu.svg";
+import "./style.scss";
 
 export const MenuButton = () => {
   const navigate = useNavigate();

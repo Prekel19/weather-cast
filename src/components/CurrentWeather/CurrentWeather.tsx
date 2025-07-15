@@ -4,7 +4,7 @@ import { Calendar, MapPin } from "lucide-react";
 import { weatherIcons } from "@/models/data";
 import { getImageURL } from "@/utility/getImageURL";
 import { CurrentWeatherDetails } from "./CurrentWeatherDetails";
-import "./currentweather.scss";
+import "./style.scss";
 
 interface ICurrentWeather {
   weather: IForecast;

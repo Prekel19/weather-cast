@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import "./container.scss";
+import "./style.scss";
 
 type Container = PropsWithChildren & {
   className?: string;

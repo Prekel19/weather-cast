@@ -25,8 +25,8 @@ export const CityWeatherItem = ({ city }: CityWeatherListItem) => {
 
   if (isError) {
     return (
-      <div className="city-weather-loading">
-        <p>Wystąpił nieoczekiwany błąd.</p>
+      <div className="city-weather-loading ">
+        <p className="text-sm text-center">An unexpected error occurred.</p>
       </div>
     );
   }

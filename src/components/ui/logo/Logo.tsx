@@ -1,7 +1,7 @@
 import Sun from "../../../assets/icons/sun.svg";
 import Cloud from "../../../assets/icons/cloud.svg";
 import { Link } from "react-router";
-import "./logo.scss";
+import "./style.scss";
 
 export const Logo = () => {
   return (

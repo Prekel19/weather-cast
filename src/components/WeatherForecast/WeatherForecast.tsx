@@ -2,7 +2,7 @@ import { ForecastDay } from "@/models/types";
 import { Container } from "../ui/container/Container";
 import { WeatherForecastLoading } from "./WeatherForecastLoading";
 import { ForecastItem } from "./WeatherForecastItem";
-import "./forecast.scss";
+import "./style.scss";
 
 interface IWeatherForecast {
   forecast: ForecastDay[] | undefined;
